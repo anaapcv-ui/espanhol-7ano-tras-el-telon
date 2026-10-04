@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo — Espanhol 7º ano | Tras el Telón 🎭</title>
+<style>
+  :root{
+    --bg:#141228; --bg2:#1d1838; --card:#241f45; --card2:#2d2654;
+    --roxo:#7b3ff2; --oro:#ffcf4d; --rojo:#e23b5a;
+    --ink:#ece9f5; --ink2:#a9a6c4; --line:#3a356e; --ok:#43e97b; --warn:#ffcf4d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+  .wrap{max-width:900px;margin:0 auto;padding:16px}
+  header.top{background:linear-gradient(135deg,#2d2654,#e23b5a 150%);border:1px solid var(--line);border-radius:20px;padding:24px 22px;margin:12px 0;text-align:center}
+  header.top h1{margin:0 0 6px;font-size:28px;color:#fff}
+  header.top p{margin:3px 0;color:#efe9ff;opacity:.95;font-size:15px}
+  .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:4px 12px;font-size:14px;margin-top:8px}
+  nav.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  nav.tabs a{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
+  nav.tabs a.active{background:var(--rojo);border-color:var(--rojo);color:#fff}
+  .save-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13px;margin:10px 0}
+  .save-bar button{cursor:pointer;border:none;border-radius:10px;padding:8px 12px;font-weight:700;font-size:13px}
+  .btn-exp{background:#1e4d3a;color:#9af0c0} .btn-imp{background:#1e3a52;color:#9ad0f0} .btn-zero{background:#52222e;color:#ffb0c4}
+  #saveInfo{color:var(--ink2);margin-left:auto}
+  .audio-hint{background:var(--card);border:1px dashed var(--roxo);border-radius:12px;padding:11px 14px;font-size:14px;color:var(--ink2);margin:10px 0}
+  .mesa{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:18px 20px;margin:16px 0}
+  .mesa h2{margin:0 0 4px;font-size:22px;color:var(--oro)}
+  .mesa .sub{color:var(--ink2);font-size:14px;margin:0 0 12px}
+  .btn-audio{background:var(--roxo);border:none;color:#fff;border-radius:8px;padding:3px 9px;font-size:13px;cursor:pointer;font-weight:900;margin-left:6px}
+  .vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:8px}
+  .vcard{background:var(--card2);border:1.5px solid var(--line);border-radius:13px;padding:11px 12px;display:flex;flex-direction:column;gap:3px}
+  .vcard .es{font-size:18px;font-weight:800;color:var(--roxo);display:flex;align-items:center;justify-content:space-between}
+  .vcard .pt{font-size:14px;color:var(--ink)}
+  .op{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .op .pair{background:var(--card2);border:1.5px solid var(--rojo);border-radius:12px;padding:8px 12px;font-size:15px}
+  .op .pair b{color:var(--oro)}
+  table.conj{width:100%;border-collapse:collapse;margin-top:10px;font-size:15px}
+  table.conj th,table.conj td{border:1px solid var(--line);padding:8px 9px;text-align:left}
+  table.conj th{background:var(--card2);color:var(--oro)}
+  table.conj td .zco{color:var(--rojo);font-weight:800}
+  .ej{background:var(--card2);border-left:4px solid var(--roxo);border-radius:8px;padding:8px 11px;margin:7px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .ej .pt-mini{color:var(--ink2);font-size:13px}
+  .postit{background:#3a3320;border:1px solid var(--oro);border-radius:12px;padding:12px 14px;margin:10px 0;color:#ffe9a8}
+  .postit b{color:var(--oro)}
+  .alerta{background:#3a1f2a;border:1px solid var(--rojo);border-radius:12px;padding:12px 14px;margin:10px 0;color:#ffc4da}
+  .alerta b{color:var(--rojo)}
+  .glos{background:var(--card);border:1.5px solid var(--oro);border-radius:16px;padding:16px 18px}
+  .gl{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+  .gl:last-child{border-bottom:none}
+  .gl .w{font-weight:800;color:var(--roxo);min-width:130px}
+  .gl .d{flex:1;font-size:14px;color:var(--ink)}
+  .footer-nav{display:flex;justify-content:space-between;margin:20px 0;gap:10px;flex-wrap:wrap}
+  .footer-nav a{background:var(--rojo);color:#fff;text-decoration:none;border-radius:12px;padding:12px 18px;font-weight:700}
+  .jogar{display:block;width:100%;text-align:center;background:var(--oro);color:#3a2e05;text-decoration:none;border-radius:14px;padding:14px;font-weight:900;font-size:18px;margin:16px 0}
+  small.muted{color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>🎭 Resumo — Tras el Telón</h1>
+    <p><b>Espanhol · 7º ano · Colégio Coração Feliz</b></p>
+    <p>Capítulo 6 (la ropa · imperfecto · adverbios de modo) e Capítulo 7 (instrumentos · pluscuamperfecto · tiempo · géneros)</p>
+    <span class="badge">📅 Prova: 05/10 · com áudio em espanhol 🔊</span>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html">🏠 Início</a>
+    <a href="leitura-guiada.html">📖 Leitura Guiada</a>
+    <a href="quiz.html">🎯 Quiz</a>
+    <a class="active" href="resumo.html">🗺️ Resumo</a>
+    <a href="simulado.html">📝 Simulado</a>
+  </nav>
+
+  <div class="save-bar">
+    <button class="btn-exp" onclick="exportar()">📥 Exportar</button>
+    <button class="btn-imp" onclick="abrirImport()">📤 Importar</button>
+    <button class="btn-zero" onclick="zerar()">🗑️ Zerar tudo</button>
+    <span id="saveInfo">—</span>
+  </div>
+
+  <div class="audio-hint">🔊 <b>Dica:</b> clique nos botões roxos para <b>ouvir</b> cada palavra e frase em espanhol. Cada carta mostra a palavra em espanhol e a tradução em português juntas — é só ler e ouvir!</div>
+
+  <!-- MESA 1 — ROPA -->
+  <div class="mesa">
+    <h2>👗 El Camerino — La ropa y los complementos</h2>
+    <p class="sub">Capítulo 6, p.88-89 e 97-98 · prendas (peças) e complementos (acessórios)</p>
+    <h3 style="color:var(--roxo);margin-bottom:4px">Prendas</h3>
+    <div class="vocab" id="voc-prendas"></div>
+    <h3 style="color:var(--roxo);margin:14px 0 4px">Complementos</h3>
+    <div class="vocab" id="voc-compl"></div>
+  </div>
+
+  <!-- MESA 2 — TEJIDOS -->
+  <div class="mesa">
+    <h2>🧵 El Baúl de Telas — Tejidos y estampados</h2>
+    <p class="sub">Capítulo 6 · como é o tecido e a estampa da roupa</p>
+    <div class="vocab" id="voc-tejidos"></div>
+    <div class="postit" style="margin-top:12px"><b>Macete:</b> <b>de rayas</b> = listrado · <b>de lunares</b> = bolinhas/poá · <b>de cuadros</b> = xadrez · <b>de flores</b> = floral · <b>liso</b> = sem estampa.</div>
+  </div>
+
+  <!-- MESA 3 — IMPERFECTO -->
+  <div class="mesa">
+    <h2>📜 El Guión de Ayer — El pretérito imperfecto</h2>
+    <p class="sub">Capítulo 6, p.92-93 e 97-98 · o tempo do passado que descreve e conta hábitos</p>
+    <div class="postit"><b>Para que serve?</b> (1) hábitos/ações repetidas: <i>Antes jugábamos en la calle</i> · (2) descrever pessoas/cenas: <i>Mi madre era muy alta</i> · (3) ações sem início/fim: <i>Lo amaba mucho</i> · (4) pedidos com cortesia: <i>Quería pedirte un favor</i>. <button class="btn-audio" onclick="speak('Antes jugábamos en la calle. Mi madre era muy alta. Quería pedirte un favor.')">🔊</button></div>
+
+    <h3 style="color:var(--roxo);margin:14px 0 4px">Regulares — <small style="color:var(--ink2)">-AR usa -aba · -ER/-IR usa -ía</small></h3>
+    <table class="conj">
+      <tr><th>Persona</th><th>hablar (-ar) <button class="btn-audio" onclick="speak('hablar')">🔊</button></th><th>comer (-er) <button class="btn-audio" onclick="speak('comer')">🔊</button></th><th>vivir (-ir) <button class="btn-audio" onclick="speak('vivir')">🔊</button></th></tr>
+      <tr><td>yo</td><td>hablaba <button class="btn-audio" onclick="speak('hablaba')">🔊</button></td><td>comía <button class="btn-audio" onclick="speak('comía')">🔊</button></td><td>vivía <button class="btn-audio" onclick="speak('vivía')">🔊</button></td></tr>
+      <tr><td>tú</td><td>hablabas</td><td>comías</td><td>vivías</td></tr>
+      <tr><td>él/ella/usted</td><td>hablaba</td><td>comía</td><td>vivía</td></tr>
+      <tr><td>nosotros(as)</td><td>hablábamos <button class="btn-audio" onclick="speak('hablábamos')">🔊</button></td><td>comíamos</td><td>vivíamos</td></tr>
+      <tr><td>vosotros(as)</td><td>hablabais</td><td>comíais</td><td>vivíais</td></tr>
+      <tr><td>ellos/ellas/ustedes</td><td>hablaban</td><td>comían</td><td>vivían</td></tr>
+    </table>
+
+    <h3 style="color:var(--roxo);margin:14px 0 4px">Los Tres Rebeldes — irregulares (só existem 3!)</h3>
+    <div class="alerta"><b>Decore:</b> os únicos irregulares são <b>ser, ir, ver</b>.</div>
+    <table class="conj">
+      <tr><th>Persona</th><th>ser <button class="btn-audio" onclick="speak('ser')">🔊</button></th><th>ir <button class="btn-audio" onclick="speak('ir')">🔊</button></th><th>ver <button class="btn-audio" onclick="speak('ver')">🔊</button></th></tr>
+      <tr><td>yo</td><td><span class="zco">era</span> <button class="btn-audio" onclick="speak('era')">🔊</button></td><td><span class="zco">iba</span> <button class="btn-audio" onclick="speak('iba')">🔊</button></td><td><span class="zco">veía</span> <button class="btn-audio" onclick="speak('veía')">🔊</button></td></tr>
+      <tr><td>tú</td><td>eras</td><td>ibas</td><td>veías</td></tr>
+      <tr><td>él/ella/usted</td><td>era</td><td>iba</td><td>veía</td></tr>
+      <tr><td>nosotros(as)</td><td>éramos</td><td>íbamos</td><td>veíamos</td></tr>
+      <tr><td>vosotros(as)</td><td>erais</td><td>ibais</td><td>veíais</td></tr>
+      <tr><td>ellos/ellas/ustedes</td><td>eran</td><td>iban</td><td>veían</td></tr>
+    </table>
+  </div>
+
+  <!-- MESA 4 — ADVERBIOS DE MODO -->
+  <div class="mesa">
+    <h2>🎭 El Modo de Actuar — Adverbios y expresiones de modo</h2>
+    <p class="sub">Capítulo 6, p.94 · dizem COMO a ação acontece (respondem "¿cómo?")</p>
+    <div class="op">
+      <div class="pair"><b>bien</b> <span style="color:var(--ink2)">bem</span> <button class="btn-audio" onclick="speak('bien')">🔊</button></div>
+      <div class="pair"><b>mal</b> <span style="color:var(--ink2)">mal</span> <button class="btn-audio" onclick="speak('mal')">🔊</button></div>
+      <div class="pair"><b>despacio</b> <span style="color:var(--ink2)">devagar</span> <button class="btn-audio" onclick="speak('despacio')">🔊</button></div>
+      <div class="pair"><b>deprisa</b> <span style="color:var(--ink2)">depressa</span> <button class="btn-audio" onclick="speak('deprisa')">🔊</button></div>
+      <div class="pair"><b>fácilmente</b> <span style="color:var(--ink2)">facilmente</span> <button class="btn-audio" onclick="speak('fácilmente')">🔊</button></div>
+      <div class="pair"><b>tranquilamente</b> <span style="color:var(--ink2)">tranquilamente</span> <button class="btn-audio" onclick="speak('tranquilamente')">🔊</button></div>
+    </div>
+    <div class="postit" style="margin-top:12px"><b>Locuções de modo</b> (grupos de palavras): <b>al revés</b> (ao contrário), <b>de veras</b> (de verdade), <b>a oscuras</b> (no escuro), <b>a sabiendas</b> (de propósito). <button class="btn-audio" onclick="speak('al revés, de veras, a oscuras, a sabiendas')">🔊</button></div>
+    <div class="ej"><span>Habla <b>bien</b> español.</span><button class="btn-audio" onclick="speak('Habla bien español')">🔊</button></div>
+    <div class="ej"><span>Cantaba <b>mal</b>, pero con alegría.</span><button class="btn-audio" onclick="speak('Cantaba mal, pero con alegría')">🔊</button></div>
+  </div>
+
+  <!-- MESA 5 — INSTRUMENTOS -->
+  <div class="mesa">
+    <h2>🎸 La Caja de Instrumentos — Instrumentos musicales</h2>
+    <p class="sub">Capítulo 7, p.105 e 112 · o que a banda toca no palco</p>
+    <div class="vocab" id="voc-inst"></div>
+    <div class="postit" style="margin-top:12px">
+      <b>Pistas do livro:</b> o <b>piano</b> produz som ao <b>pulsar</b> (apertar) as teclas brancas e pretas; o <b>violín</b> é de <b>corda</b>, tocado com <b>arco</b> e tem quatro cordas; o <b>tambor</b> é de <b>percussão</b>, tocado golpeando com baquetas sobre os parches (peles).
+    </div>
+  </div>
+
+  <!-- MESA 6 — PLUSCUAMPERFECTO -->
+  <div class="mesa">
+    <h2>🎼 Antes del Concierto — El pretérito pluscuamperfecto</h2>
+    <p class="sub">Capítulo 7, p.108-109 e 111-112 · ação passada que aconteceu ANTES de outra passada</p>
+    <div class="alerta"><b>Como se forma:</b> verbo <b>HABER no imperfecto</b> + <b>particípio</b>.<br>Ex.: <i>Cuando llegué a la clase, la prueba ya <b>había empezado</b>.</i> <button class="btn-audio" onclick="speak('Cuando llegué a la clase, la prueba ya había empezado')">🔊</button></div>
+    <table class="conj">
+      <tr><th>Persona</th><th>haber (imperfecto) <button class="btn-audio" onclick="speak('haber')">🔊</button></th><th>+ participio</th></tr>
+      <tr><td>yo</td><td>había <button class="btn-audio" onclick="speak('había')">🔊</button></td><td rowspan="6" style="vertical-align:middle"><b>cantado · comido · vivido</b><br><small style="color:var(--ink2)">irregulares: hecho, dicho, visto, escrito, abierto, puesto, vuelto</small> <button class="btn-audio" onclick="speak('cantado, comido, vivido, hecho, dicho, visto, escrito, abierto, puesto, vuelto')">🔊</button></td></tr>
+      <tr><td>tú</td><td>habías</td></tr>
+      <tr><td>él/ella/usted</td><td>había</td></tr>
+      <tr><td>nosotros(as)</td><td>habíamos</td></tr>
+      <tr><td>vosotros(as)</td><td>habíais</td></tr>
+      <tr><td>ellos/ellas/ustedes</td><td>habían</td></tr>
+    </table>
+    <div class="postit" style="margin-top:12px"><b>Outros usos:</b> primeira vez até certo momento — <i>Nunca <b>había probado</b> el sushi</i>; e contar o que alguém disse referido ao passado — <i>Me dijo que ya <b>había comprado</b> las entradas</i>. <button class="btn-audio" onclick="speak('Nunca había probado el sushi. Me dijo que ya había comprado las entradas.')">🔊</button></div>
+    <div class="ej"><span>Ella ya <b>había escrito</b> la carta.</span><span class="pt-mini">→ (escribir → escrito)</span><button class="btn-audio" onclick="speak('Ella ya había escrito la carta')">🔊</button></div>
+    <div class="ej"><span>Nosotros habíamos <b>visto</b> esa película.</span><span class="pt-mini">→ (ver → visto)</span><button class="btn-audio" onclick="speak('Nosotros habíamos visto esa película')">🔊</button></div>
+  </div>
+
+  <!-- MESA 7 — TIEMPO -->
+  <div class="mesa">
+    <h2>⏳ El Compás del Tiempo — Adverbios y expresiones de tiempo</h2>
+    <p class="sub">Capítulo 7, p.109 · quando a ação acontece</p>
+    <p><b>Advérbios de tempo</b> (uma só palavra, invariáveis):</p>
+    <div class="op">
+      <div class="pair"><b>antes</b> <button class="btn-audio" onclick="speak('antes')">🔊</button></div>
+      <div class="pair"><b>después</b> <button class="btn-audio" onclick="speak('después')">🔊</button></div>
+      <div class="pair"><b>ayer</b> <button class="btn-audio" onclick="speak('ayer')">🔊</button></div>
+      <div class="pair"><b>hoy</b> <button class="btn-audio" onclick="speak('hoy')">🔊</button></div>
+      <div class="pair"><b>mañana</b> <button class="btn-audio" onclick="speak('mañana')">🔊</button></div>
+      <div class="pair"><b>siempre</b> <button class="btn-audio" onclick="speak('siempre')">🔊</button></div>
+      <div class="pair"><b>nunca</b> <button class="btn-audio" onclick="speak('nunca')">🔊</button></div>
+      <div class="pair"><b>temprano</b> <button class="btn-audio" onclick="speak('temprano')">🔊</button></div>
+      <div class="pair"><b>tarde</b> <button class="btn-audio" onclick="speak('tarde')">🔊</button></div>
+      <div class="pair"><b>todavía / aún</b> <button class="btn-audio" onclick="speak('todavía, aún')">🔊</button></div>
+      <div class="pair"><b>ya</b> <button class="btn-audio" onclick="speak('ya')">🔊</button></div>
+      <div class="pair"><b>anoche</b> <button class="btn-audio" onclick="speak('anoche')">🔊</button></div>
+      <div class="pair"><b>enseguida</b> <button class="btn-audio" onclick="speak('enseguida')">🔊</button></div>
+      <div class="pair"><b>ahora</b> <button class="btn-audio" onclick="speak('ahora')">🔊</button></div>
+      <div class="pair"><b>mientras</b> <button class="btn-audio" onclick="speak('mientras')">🔊</button></div>
+    </div>
+    <div class="postit" style="margin-top:12px"><b>Locuções de tempo</b> (grupos de palavras): de repente, de pronto, a menudo, al amanecer, al anochecer, de vez en cuando, por la noche, por la mañana, por la tarde. <button class="btn-audio" onclick="speak('de repente, de pronto, a menudo, al amanecer, al anochecer, de vez en cuando, por la noche, por la mañana, por la tarde')">🔊</button></div>
+  </div>
+
+  <!-- MESA 8 — GÉNEROS -->
+  <div class="mesa">
+    <h2>🎵 El Escenario — Géneros de música y danza</h2>
+    <p class="sub">Síntese p.112 · ritmos que aparecem no capítulo</p>
+    <div class="op">
+      <div class="pair"><b>salsa</b> <button class="btn-audio" onclick="speak('salsa')">🔊</button></div>
+      <div class="pair"><b>merengue</b> <button class="btn-audio" onclick="speak('merengue')">🔊</button></div>
+      <div class="pair"><b>bachata</b> <button class="btn-audio" onclick="speak('bachata')">🔊</button></div>
+      <div class="pair"><b>rumba</b> <button class="btn-audio" onclick="speak('rumba')">🔊</button></div>
+      <div class="pair"><b>rock</b> <button class="btn-audio" onclick="speak('rock')">🔊</button></div>
+      <div class="pair"><b>blues</b> <button class="btn-audio" onclick="speak('blues')">🔊</button></div>
+    </div>
+  </div>
+
+  <!-- GLOSARIO -->
+  <div class="glos">
+    <h2 style="margin-top:0;color:var(--oro)">📓 Glosario rápido</h2>
+    <div class="gl"><span class="w">la ropa</span><span class="d">a roupa (em geral)</span><button class="btn-audio" onclick="speak('la ropa')">🔊</button></div>
+    <div class="gl"><span class="w">el complemento</span><span class="d">o acessório (bolsa, boné, cinto...)</span><button class="btn-audio" onclick="speak('el complemento')">🔊</button></div>
+    <div class="gl"><span class="w">de rayas / de lunares</span><span class="d">listrado / de bolinhas (poá)</span><button class="btn-audio" onclick="speak('de rayas, de lunares')">🔊</button></div>
+    <div class="gl"><span class="w">imperfecto</span><span class="d">tempo do passado para hábitos e descrições</span><button class="btn-audio" onclick="speak('pretérito imperfecto')">🔊</button></div>
+    <div class="gl"><span class="w">ser, ir, ver</span><span class="d">os três (e únicos) irregulares do imperfecto</span><button class="btn-audio" onclick="speak('ser, ir, ver')">🔊</button></div>
+    <div class="gl"><span class="w">adverbio de modo</span><span class="d">diz COMO a ação acontece (bien, mal, despacio)</span><button class="btn-audio" onclick="speak('adverbio de modo')">🔊</button></div>
+    <div class="gl"><span class="w">pluscuamperfecto</span><span class="d">había + particípio: ação passada antes de outra passada</span><button class="btn-audio" onclick="speak('pretérito pluscuamperfecto')">🔊</button></div>
+    <div class="gl"><span class="w">participio</span><span class="d">forma do verbo: cantado, comido, hecho, visto...</span><button class="btn-audio" onclick="speak('participio')">🔊</button></div>
+    <div class="gl"><span class="w">adverbio de tiempo</span><span class="d">diz QUANDO a ação acontece (ayer, hoy, siempre)</span><button class="btn-audio" onclick="speak('adverbio de tiempo')">🔊</button></div>
+  </div>
+
+  <a class="jogar" href="simulado.html">📝 Agora encare o Simulado! →</a>
+
+  <div class="footer-nav">
+    <a href="quiz.html">← Voltar ao Quiz</a>
+    <a href="simulado.html">📝 Ir para o Simulado →</a>
+  </div>
+  <p style="text-align:center"><small class="muted">Feito com carinho para o(a) jovem aprendiz. Conteúdo dos capítulos 6 e 7 do livro de Espanhol (CCF).</small></p>
+</div>
+
+<div id="importModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;align-items:center;justify-content:center">
+  <div style="background:var(--card);border:1.5px solid var(--oro);border-radius:16px;padding:20px;max-width:480px;width:92%">
+    <h3 style="margin-top:0">📤 Importar</h3>
+    <p style="font-size:14px">Cole aqui o texto que você exportou antes:</p>
+    <textarea id="importText" style="width:100%;min-height:110px;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px"></textarea>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn-imp" onclick="fazerImport()">Importar</button>
+      <button class="btn-zero" onclick="fecharImport()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== ÁUDIO (es-ES, rate=1) =====
+function speak(txt){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(txt);
+  u.lang='es-ES'; u.rate=1;
+  const vs=window.speechSynthesis.getVoices();
+  const es=vs.find(v=>v.lang&&v.lang.toLowerCase().startsWith('es'));
+  if(es) u.voice=es;
+  window.speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices(); }
+
+// ===== VOCABULÁRIO (cards FIXOS: espanhol + português juntos) =====
+const PRENDAS=[
+ ["la camiseta","camiseta"],["la camisa","camisa"],["la falda","saia"],["el vestido","vestido"],
+ ["el traje","terno"],["los pantalones vaqueros","calça jeans"],["los pantalones cortos","shorts/bermuda"],
+ ["el jersey","suéter"],["el abrigo","casaco/sobretudo"],["la sudadera","moletom"],
+ ["el blazer / la americana","blazer"],["el chaleco","colete"],["el bañador","maiô/sunga"],
+ ["los calcetines / las medias","meias"],["las deportivas / los tenis","tênis"]
+];
+const COMPL=[
+ ["el bolso","a bolsa"],["las gafas de sol","óculos de sol"],["la gorra","boné"],["el sombrero","chapéu"],
+ ["el cinturón","cinto"],["la corbata","gravata"],["la bufanda","cachecol"],["los guantes","luvas"],
+ ["las botas","botas"],["los zapatos","sapatos"],["las sandalias","sandálias"],["las chanclas","chinelos"],
+ ["el gorro","gorro (de lã)"],["el reloj","relógio (de pulso)"]
+];
+const TEJIDOS=[
+ ["liso","liso (sem estampa)"],["de cuadros","xadrez"],["de rayas","listrado"],["de lunares","de bolinhas (poá)"],
+ ["de flores","floral"],["de encaje","de renda"],["de lana","de lã"]
+];
+const INST=[
+ ["la guitarra","violão"],["la guitarra eléctrica","guitarra elétrica"],["el violín","violino"],["el arpa","harpa"],
+ ["el piano","piano"],["el acordeón","acordeão"],["el saxofón","saxofone"],["la flauta","flauta"],
+ ["la trompa","trompa"],["la trompeta","trompete"],["la batería","bateria"],["el tambor","tambor"],
+ ["las congas","congas"],["las maracas","maracás"],["las castañuelas","castanholas"],["el cajón","cajón"]
+];
+
+function cardVocab(es,pt){
+  const fala=es.replace(/\s*\/.*$/,'').trim();
+  return `<div class="vcard"><div class="es">${es}<button class="btn-audio" onclick="speak('${fala.replace(/'/g,"\\'")}')">🔊</button></div><div class="pt">${pt}</div></div>`;
+}
+function montar(){
+  document.getElementById('voc-prendas').innerHTML=PRENDAS.map(v=>cardVocab(v[0],v[1])).join('');
+  document.getElementById('voc-compl').innerHTML=COMPL.map(v=>cardVocab(v[0],v[1])).join('');
+  document.getElementById('voc-tejidos').innerHTML=TEJIDOS.map(v=>cardVocab(v[0],v[1])).join('');
+  document.getElementById('voc-inst').innerHTML=INST.map(v=>cardVocab(v[0],v[1])).join('');
+}
+
+// ===== SALVAMENTO + ROLAGEM (para relatório dos pais) =====
+const KEY="esp7_cap6-7_resumo_v1";
+let store={maxScroll:0};
+const mem={};
+function load(){
+  try{ const r=localStorage.getItem(KEY); if(r) store=JSON.parse(r); }
+  catch(e){ try{ store=mem[KEY]?JSON.parse(mem[KEY]):{maxScroll:0}; }catch(_){ store={maxScroll:0}; } }
+  if(store.maxScroll==null) store.maxScroll=0;
+}
+function save(){
+  store.quando=new Date().toLocaleString('pt-BR');
+  const raw=JSON.stringify(store);
+  try{ localStorage.setItem(KEY,raw); }catch(e){ mem[KEY]=raw; }
+  const el=document.getElementById('saveInfo'); if(el) el.textContent="💾 Salvo "+store.quando;
+}
+function trackScroll(){
+  const h=document.documentElement;
+  const total=h.scrollHeight-h.clientHeight;
+  const pct= total>0 ? Math.round((h.scrollTop||window.scrollY)/total*100) : 100;
+  if(pct>store.maxScroll){ store.maxScroll=Math.min(100,pct); save(); }
+}
+window.addEventListener('scroll',trackScroll,{passive:true});
+
+function exportar(){
+  const data=JSON.stringify(store,null,2);
+  const blob=new Blob([data],{type:"application/json"});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download="resumo-espanhol-7ano.json"; a.click();
+}
+function abrirImport(){ document.getElementById('importModal').style.display="flex"; }
+function fecharImport(){ document.getElementById('importModal').style.display="none"; }
+function fazerImport(){
+  try{ const t=document.getElementById('importText').value; store=JSON.parse(t); if(store.maxScroll==null)store.maxScroll=0; save(); fecharImport(); }
+  catch(e){ document.getElementById('importText').value="⚠️ Texto inválido. Cole o conteúdo exportado.\n\n"+document.getElementById('importText').value; }
+}
+function zerar(){ store={maxScroll:0}; try{ localStorage.removeItem(KEY); }catch(e){} save(); }
+
+// ===== INÍCIO =====
+montar(); load();
+if(store.quando){ document.getElementById('saveInfo').textContent="💾 Salvo "+store.quando; }
+save();
+</script>
+</body>
+</html>

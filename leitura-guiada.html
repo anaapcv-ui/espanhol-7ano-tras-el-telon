@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leitura Guiada — Espanhol 7º ano | Tras el Telón 🎭</title>
+<style>
+  :root{
+    --bg:#141228; --bg2:#1d1838; --card:#241f45; --card2:#2d2654;
+    --roxo:#7b3ff2; --oro:#ffcf4d; --rojo:#e23b5a;
+    --ink:#ece9f5; --ink2:#a9a6c4; --line:#3a356e; --ok:#43e97b; --warn:#ffcf4d; --red:#ff5d7a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:17px}
+  .wrap{max-width:900px;margin:0 auto;padding:16px}
+  header.top{background:linear-gradient(135deg,#2d2654,#7b3ff2 170%);border:1px solid var(--line);border-radius:20px;padding:24px 22px;margin:12px 0;text-align:center}
+  header.top h1{margin:0 0 6px;font-size:27px;color:#fff}
+  header.top p{margin:3px 0;color:#efe9ff;opacity:.95;font-size:15px}
+  .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:4px 12px;font-size:14px;margin-top:8px}
+  nav.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  nav.tabs a{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
+  nav.tabs a.active{background:var(--roxo);border-color:var(--roxo);color:#fff}
+  .howto{background:var(--card);border-left:6px solid var(--oro);border-radius:14px;padding:14px 18px;margin:10px 0}
+  .howto h2{margin:0 0 6px;color:var(--oro);font-size:20px}
+  .save-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13px;margin:10px 0}
+  .save-bar button{cursor:pointer;border:none;border-radius:10px;padding:8px 12px;font-weight:700;font-size:13px}
+  .btn-exp{background:#1e4d3a;color:#9af0c0} .btn-imp{background:#1e3a52;color:#9ad0f0} .btn-zero{background:#52222e;color:#ffb0c4}
+  #saveInfo{color:var(--ink2);margin-left:auto}
+  .btn-audio{background:var(--roxo);border:none;color:#fff;border-radius:8px;padding:2px 8px;font-size:13px;cursor:pointer;font-weight:900;margin-left:4px}
+  .block{border:1px solid var(--line);border-radius:16px;margin:16px 0;overflow:hidden;background:var(--card)}
+  .block.locked{opacity:.5}
+  .block-head{padding:14px 18px;font-weight:700;font-size:19px;color:#fff;display:flex;align-items:center;gap:10px}
+  .block-body{padding:6px 18px 18px}
+  .block-status{margin-left:auto;font-size:14px;background:rgba(0,0,0,.22);border-radius:999px;padding:2px 10px;color:#fff}
+  .h-roxo{background:var(--roxo)} .h-oro{background:var(--oro);color:#3a2e05} .h-oro .block-status{color:#3a2e05} .h-rojo{background:var(--rojo)}
+  .txt{background:var(--card2);border-radius:12px;padding:12px 14px;margin:10px 0}
+  .txt p{margin:8px 0}
+  .keyword{background:#3a2e5e;color:var(--oro);border-radius:5px;padding:0 4px;font-weight:700}
+  .completar{background:#231b42;border:1px solid var(--roxo);border-radius:12px;padding:12px 14px;margin:12px 0}
+  .completar .cq{font-weight:600;margin-bottom:8px}
+  .completar input{background:var(--bg2);color:var(--ink);border:1.5px solid var(--line);border-radius:8px;padding:7px 9px;font-size:16px;width:180px}
+  .completar button.ck{background:var(--roxo);border:none;color:#fff;border-radius:9px;padding:7px 13px;font-weight:800;cursor:pointer;margin-left:6px}
+  .completar .fb{margin-top:8px;font-size:15px;display:none}
+  .completar .fb.ok{display:block;color:var(--ok)} .completar .fb.no{display:block;color:var(--red)}
+  .q{background:var(--card2);border-radius:12px;padding:12px 14px;margin:12px 0;border:1px solid var(--line)}
+  .q.red{border:2px solid var(--red);background:#3a1f2a}
+  .q .tag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px;margin-bottom:6px}
+  .tag-con{background:#1e3a52;color:#9ad0f0} .tag-apl{background:#1e4d3a;color:#9af0c0}
+  .q label{font-weight:600;display:block;margin-bottom:6px}
+  .q textarea{width:100%;min-height:62px;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px;font-family:inherit;font-size:16px;resize:vertical}
+  .alert{border-radius:10px;padding:10px 12px;margin:8px 0;font-size:15px;display:none}
+  .alert.copy{background:#4a3a1e;border:1px solid var(--warn);color:#ffe9a8;display:block}
+  .alert.redwarn{background:#3a1f2a;border:1px solid var(--red);color:#ffc4da;display:block}
+  .modelo{display:none;margin-top:10px;background:#231b42;border:1px solid var(--roxo);border-radius:10px;padding:10px 12px}
+  .modelo.show{display:block}
+  .modelo .mtitle{font-weight:700;color:var(--oro);margin-bottom:4px}
+  .chk{margin-top:8px}
+  .chk .cline{display:flex;align-items:center;gap:8px;margin:6px 0;flex-wrap:wrap}
+  .chk .cline span{flex:1;min-width:180px}
+  .chk button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:4px 12px;cursor:pointer;font-weight:600}
+  .chk button.sel-sim{background:var(--ok);color:#06321a;border-color:var(--ok)}
+  .chk button.sel-nao{background:var(--red);color:#fff;border-color:var(--red)}
+  .conferir{background:var(--roxo);color:#fff;border:none;border-radius:12px;padding:10px 18px;font-weight:800;font-size:16px;cursor:pointer;margin-top:8px}
+  .conferir:disabled{background:#555;cursor:not-allowed}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:14px 0}
+  .pegadinhas{border:1px solid var(--oro)}
+  .pegadinhas h2{color:var(--oro)}
+  .pegadinhas ol{margin:8px 0 0;padding-left:22px} .pegadinhas li{margin:8px 0}
+  table.cover{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+  table.cover th,table.cover td{border:1px solid var(--line);padding:8px;text-align:left}
+  table.cover th{background:var(--card2);color:var(--oro)}
+  .revisar{border:1px solid var(--red)} .revisar h2{color:var(--red)}
+  .footer-nav{display:flex;justify-content:space-between;margin:20px 0;gap:10px;flex-wrap:wrap}
+  .footer-nav a{background:var(--roxo);color:#fff;text-decoration:none;border-radius:12px;padding:12px 18px;font-weight:800}
+  small.muted{color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>📖 Leitura Guiada — Tras el Telón 🎭</h1>
+    <p><b>Espanhol · 7º ano · Colégio Coração Feliz</b></p>
+    <p>Capítulo 6 (la ropa · pretérito imperfecto · adverbios de modo) e Capítulo 7 (instrumentos · pluscuamperfecto · tiempo)</p>
+    <span class="badge">📅 Prova: 05/10 · leia um quadro de cada vez ✨</span>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html">🏠 Início</a>
+    <a class="active" href="leitura-guiada.html">📖 Leitura Guiada</a>
+    <a href="quiz.html">🎯 Quiz</a>
+    <a href="resumo.html">🗺️ Resumo</a>
+    <a href="simulado.html">📝 Simulado</a>
+  </nav>
+
+  <div class="howto">
+    <h2>Como usar 👣</h2>
+    <p>Cada quadro (bloco) tem um <b>textinho em espanhol com áudio</b> 🔊, uma atividade de <b>completar</b> e <b>3 perguntas</b>. Você <b>escreve</b> a resposta com as suas próprias palavras (não vale copiar o texto!). Depois clica em <b>Conferir</b> para ver a resposta modelo e marcar se acertou. O próximo quadro só abre quando você confere o anterior. No fim há uma caixa de <b>pegadinhas</b> e a tabela de cobertura. Tudo fica salvo sozinho. 💾</p>
+  </div>
+
+  <div class="save-bar">
+    <button class="btn-exp" onclick="exportar()">📥 Exportar</button>
+    <button class="btn-imp" onclick="abrirImport()">📤 Importar</button>
+    <button class="btn-zero" onclick="zerar()">🗑️ Zerar tudo</button>
+    <span id="saveInfo">—</span>
+  </div>
+
+  <div id="blocos"></div>
+
+  <div class="panel pegadinhas">
+    <h2>⚠️ 10 Pegadinhas que a prova adora</h2>
+    <ol>
+      <li><b>Imperfecto só tem 3 irregulares:</b> <u>ser, ir, ver</u>. Qualquer outro verbo é regular (-aba ou -ía).</li>
+      <li><b>-AR → -aba / -ER e -IR → -ía.</b> "comer" fica <b>comía</b> (não "comaba"); "hablar" fica <b>hablaba</b> (não "hablía").</li>
+      <li><b>ver</b> mantém o <b>e</b>: <b>veía</b> (não "vía"). É um dos rebeldes.</li>
+      <li><b>ir</b> no imperfecto é <b>iba, ibas, iba…</b> — com B, não com V.</li>
+      <li><b>Pluscuamperfecto = había + particípio.</b> É sempre o verbo <b>haber</b> (não "tener"): "había comido".</li>
+      <li><b>Particípios irregulares:</b> hacer→<b>hecho</b>, decir→<b>dicho</b>, ver→<b>visto</b>, escribir→<b>escrito</b>, abrir→<b>abierto</b>, poner→<b>puesto</b>, volver→<b>vuelto</b>.</li>
+      <li><b>Pluscuamperfecto</b> é uma ação passada que aconteceu <u>antes</u> de outra passada: "Cuando llegué, ya <b>había empezado</b>".</li>
+      <li><b>de rayas</b> = listrado; <b>de lunares</b> = de bolinhas/poá; <b>de cuadros</b> = xadrez. Não confunda!</li>
+      <li><b>Advérbio de modo</b> responde "<b>¿cómo?</b>" (bien, mal, despacio). Muitos terminam em <b>-mente</b>.</li>
+      <li><b>Locução adverbial</b> é um <u>grupo de palavras</u>: al revés, a oscuras, de veras, de vez en cuando.</li>
+    </ol>
+  </div>
+
+  <div class="panel">
+    <h2 style="color:var(--oro)">🧭 Cobertura — Onde estudei cada assunto</h2>
+    <table class="cover">
+      <tr><th>Tópico da prova</th><th>Capítulo / páginas</th><th>Bloco</th></tr>
+      <tr><td>La ropa y los complementos (vocabulário)</td><td>6 (p.88-89, 97-98)</td><td>Bloco 1</td></tr>
+      <tr><td>Tipos de tejido y estampado</td><td>6 (p.88-89)</td><td>Bloco 2</td></tr>
+      <tr><td>Pretérito imperfecto — usos</td><td>6 (p.92-93, 97-98)</td><td>Bloco 3</td></tr>
+      <tr><td>Imperfecto regular (-aba / -ía)</td><td>6 (p.92-93)</td><td>Bloco 4</td></tr>
+      <tr><td>Imperfecto irregular: ser, ir, ver</td><td>6 (p.92-93)</td><td>Bloco 5</td></tr>
+      <tr><td>Adverbios y expresiones de modo</td><td>6 (p.94)</td><td>Bloco 6</td></tr>
+      <tr><td>Instrumentos musicales</td><td>7 (p.105, 112)</td><td>Bloco 7</td></tr>
+      <tr><td>Pretérito pluscuamperfecto (uso + formação)</td><td>7 (p.108-109, 111-112)</td><td>Bloco 8</td></tr>
+      <tr><td>Adverbios/expresiones de tiempo + géneros de música</td><td>7 (p.109, 112)</td><td>Bloco 9</td></tr>
+    </table>
+  </div>
+
+  <div class="panel revisar" id="revisarBox" style="display:none">
+    <h2>🔁 Para revisar</h2>
+    <p>Estas perguntas ficaram marcadas em vermelho (resposta muito parecida com o texto) ou com algum "não" na autoavaliação. Vale reler o quadro e reescrever com as suas palavras!</p>
+    <ul id="revisarList"></ul>
+  </div>
+
+  <div class="footer-nav">
+    <a href="index.html">🏠 Início</a>
+    <a href="quiz.html">🎯 Ir para o Quiz →</a>
+  </div>
+  <p style="text-align:center"><small class="muted">Feito com carinho para o(a) jovem aprendiz. Conteúdo dos capítulos 6 e 7 do livro de Espanhol (CCF).</small></p>
+</div>
+
+<div id="importModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;align-items:center;justify-content:center">
+  <div style="background:var(--card);border:1.5px solid var(--oro);border-radius:16px;padding:20px;max-width:480px;width:92%">
+    <h3 style="margin-top:0">📤 Importar respostas</h3>
+    <p style="font-size:14px">Cole aqui o texto que você exportou antes:</p>
+    <textarea id="importText" style="width:100%;min-height:110px;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px"></textarea>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn-imp" onclick="fazerImport()">Importar</button>
+      <button class="btn-zero" onclick="fecharImport()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== ÁUDIO (es-ES, rate=1) =====
+function speak(txt){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(txt);
+  u.lang='es-ES'; u.rate=1;
+  const vs=window.speechSynthesis.getVoices();
+  const es=vs.find(v=>v.lang&&v.lang.toLowerCase().startsWith('es'));
+  if(es) u.voice=es;
+  window.speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices(); }
+
+// ===== DADOS DA LEITURA =====
+const BLOCOS = [
+ {
+  id:"b1", cor:"h-roxo", emoji:"👗", titulo:"Bloco 1 — El Camerino: la ropa y los complementos",
+  paragrafos:[
+   "En el camerino, antes del espectáculo, cada artista elige su <span class='keyword'>ropa</span> (roupa). Las prendas: <b>la camiseta</b> (camiseta), <b>la camisa</b> (camisa), <b>la falda</b> (saia), <b>el vestido</b> (vestido), <b>el traje</b> (terno), <b>los pantalones vaqueros</b> (calça jeans), <b>el jersey</b> (suéter), <b>el abrigo</b> (casaco), <b>la sudadera</b> (moletom) y <b>el blazer</b> (o <b>la americana</b>). <button class='btn-audio' onclick=\"speak('la camiseta, la camisa, la falda, el vestido, el traje, los pantalones vaqueros, el jersey, el abrigo, la sudadera, el blazer')\">🔊</button>",
+   "Y los <span class='keyword'>complementos</span> (acessórios) que completam o visual: <b>el bolso</b> (bolsa), <b>las gafas de sol</b> (óculos de sol), <b>la gorra</b> (boné), <b>el sombrero</b> (chapéu), <b>el cinturón</b> (cinto), <b>la corbata</b> (gravata), <b>la bufanda</b> (cachecol), <b>los guantes</b> (luvas), <b>las botas</b> (botas), <b>los zapatos</b> (sapatos) y <b>las deportivas / los tenis</b> (tênis). <button class='btn-audio' onclick=\"speak('el bolso, las gafas de sol, la gorra, el sombrero, el cinturón, la corbata, la bufanda, los guantes, las botas, los zapatos, las deportivas')\">🔊</button>"
+  ],
+  completar:{cq:"Complete: 'Cuando hace frío, me pongo el ______ y la bufanda.' (casaco)", resp:["abrigo","el abrigo"], dica:"a peça de frio, 'casaco'", fala:"Cuando hace frío, me pongo el abrigo y la bufanda"},
+  perguntas:[
+   {tipo:"aplicacao", q:"Escreva em espanhol três prendas (peças de roupa) que você usaria para ir à escola.",
+    modelo:"Resposta pessoal. Ex.: 'la camiseta, los pantalones vaqueros y las deportivas'. Valem quaisquer três peças do vocabulário.",
+    chk:["Escrevi três peças em espanhol?","Usei palavras da lista de ropa?"]},
+   {tipo:"conceitual", q:"Qual é a diferença entre uma 'prenda' e um 'complemento'? Explique com suas palavras.",
+    modelo:"A prenda é a peça de roupa em si (camiseta, vestido, pantalones). O complemento é o acessório que completa o visual (bolso, gorra, gafas de sol, cinturón).",
+    chk:["Falei que prenda é a roupa em si?","Falei que complemento é o acessório?"]},
+   {tipo:"aplicacao", q:"Escreva em espanhol o que você vestiria num dia de muito calor (use pelo menos duas palavras do vocabulário).",
+    modelo:"Ex.: 'Me pongo una camiseta, los pantalones cortos y las gafas de sol'. Precisa ter pelo menos duas palavras de ropa/complementos.",
+    chk:["Usei pelo menos duas palavras do vocabulário?","A escolha combina com um dia quente?"]}
+  ]
+ },
+ {
+  id:"b2", cor:"h-oro", emoji:"🧵", titulo:"Bloco 2 — El Baúl de Telas: tejidos y estampados",
+  paragrafos:[
+   "No baú do figurino há roupas de <span class='keyword'>tejidos</span> (tecidos) diferentes: <b>de lana</b> (de lã) y <b>de encaje</b> (de renda). E há vários <span class='keyword'>estampados</span> (estampas). <button class='btn-audio' onclick=\"speak('de lana, de encaje')\">🔊</button>",
+   "Os estampados mais cobrados: <b>liso</b> (liso, sem estampa), <b>de cuadros</b> (xadrez), <b>de rayas</b> (listrado), <b>de lunares</b> (de bolinhas / poá) y <b>de flores</b> (floral). Ex.: 'una camisa de cuadros', 'una falda de rayas', 'un vestido de flores'. <button class='btn-audio' onclick=\"speak('liso, de cuadros, de rayas, de lunares, de flores')\">🔊</button>"
+  ],
+  completar:{cq:"Complete: 'La camiseta del baterista tiene bolitas: es una camiseta ______.' (poá)", resp:["de lunares","lunares"], dica:"estampa de bolinhas", fala:"La camiseta del baterista es de lunares"},
+  perguntas:[
+   {tipo:"conceitual", q:"O que querem dizer 'de rayas' e 'de lunares'? Explique com suas palavras.",
+    modelo:"'De rayas' é listrado (com listras). 'De lunares' é de bolinhas, também chamado poá.",
+    chk:["Expliquei que 'de rayas' é listrado?","Expliquei que 'de lunares' é de bolinhas/poá?"]},
+   {tipo:"aplicacao", q:"Escreva em espanhol uma peça de roupa + um tipo de estampa (ex.: 'una camisa de...').",
+    modelo:"Ex.: 'una falda de cuadros' ou 'un vestido de flores'. Precisa juntar uma peça + um estampado.",
+    chk:["Juntei uma peça + uma estampa?","Escrevi em espanhol?"]},
+   {tipo:"aplicacao", q:"Como se diz em espanhol 'um suéter de lã' e 'um vestido floral'?",
+    modelo:"'un jersey de lana' e 'un vestido de flores'.",
+    chk:["Escrevi 'de lana' para o suéter?","Escrevi 'de flores' para o vestido?"]}
+  ]
+ },
+ {
+  id:"b3", cor:"h-rojo", emoji:"📜", titulo:"Bloco 3 — El Guión de Ayer: para qué sirve el imperfecto",
+  paragrafos:[
+   "O roteiro (guión) do passado usa um tempo especial: o <span class='keyword'>pretérito imperfecto</span>. Ele serve, primeiro, para falar de <b>hábitos e ações repetidas</b> no passado: <b>'Antes jugábamos en la calle'</b> (antes nós brincávamos na rua). <button class='btn-audio' onclick=\"speak('Antes jugábamos en la calle')\">🔊</button>",
+   "Também serve para <b>descrever</b> pessoas, coisas ou cenas no passado: <b>'Mi madre era muy alta y tenía el pelo corto'</b>; para ações <b>sem início nem fim marcados</b>: 'Lo amaba mucho'; e para <b>pedidos com cortesia</b>: 'Quería pedirte un favor'. <button class='btn-audio' onclick=\"speak('Mi madre era muy alta y tenía el pelo corto. Quería pedirte un favor.')\">🔊</button>"
+  ],
+  completar:{cq:"Complete (hábito no passado, verbo jugar, 'yo'): 'Cuando era niño, siempre ______ en el parque.'", resp:["jugaba"], dica:"hábito no passado, verbo jugar", fala:"Cuando era niño, siempre jugaba en el parque"},
+  perguntas:[
+   {tipo:"conceitual", q:"Para que serve o pretérito imperfecto? Dê um dos usos com suas palavras.",
+    modelo:"Serve para falar do passado: hábitos/ações repetidas ('antes jugábamos'), descrições de pessoas/cenas ('era alta'), ações sem início/fim marcados, e pedidos com cortesia ('quería'). Basta um uso.",
+    chk:["Citei pelo menos um uso do imperfecto?","Liguei o uso ao passado?"]},
+   {tipo:"aplicacao", q:"Escreva em espanhol uma frase sua sobre um hábito que você tinha quando era pequeno (use 'antes' ou 'cuando era niño/a').",
+    modelo:"Ex.: 'Cuando era niña, veía dibujos todos los sábados' ou 'Antes jugaba con mis primos'. Precisa ser uma frase de hábito no passado.",
+    chk:["Usei 'antes' ou 'cuando era niño/a'?","A frase fala de um hábito do passado?"]},
+   {tipo:"aplicacao", q:"A frase 'Mi abuela era muy simpática' é descrição ou hábito? Explique por quê.",
+    modelo:"É descrição: ela conta como a avó era (uma característica dela no passado), e não uma ação repetida.",
+    chk:["Respondi que é descrição?","Expliquei que descreve como ela era?"]}
+  ]
+ },
+ {
+  id:"b4", cor:"h-roxo", emoji:"🔁", titulo:"Bloco 4 — Ensayo Regular: el imperfecto regular",
+  paragrafos:[
+   "No ensaio (ensayo) treinamos as formas <span class='keyword'>regulares</span>. Os verbos em <b>-AR</b> usam <b>-aba</b>. HABLAR → <b>hablaba, hablabas, hablaba, hablábamos, hablabais, hablaban</b>. <button class='btn-audio' onclick=\"speak('hablaba, hablabas, hablaba, hablábamos, hablabais, hablaban')\">🔊</button>",
+   "Os verbos em <b>-ER</b> e <b>-IR</b> usam <b>-ía</b>. COMER → <b>comía, comías, comía, comíamos, comíais, comían</b>. VIVIR → <b>vivía, vivías, vivía, vivíamos, vivíais, vivían</b>. <button class='btn-audio' onclick=\"speak('comía, comías, comía, comíamos, comíais, comían. vivía, vivías, vivía, vivíamos, vivíais, vivían')\">🔊</button> <br>Truque: <b>-ar = -aba</b> · <b>-er / -ir = -ía</b>."
+  ],
+  completar:{cq:"Complete (verbo vivir, 'nosotros'): 'Antes nosotros ______ en Madrid.'", resp:["vivíamos"], dica:"-IR usa -ía; nosotros = -íamos", fala:"Antes nosotros vivíamos en Madrid"},
+  perguntas:[
+   {tipo:"conceitual", q:"Qual é a terminação do imperfecto para os verbos em -AR e qual para os em -ER / -IR?",
+    modelo:"Os verbos em -AR usam -aba (hablaba). Os verbos em -ER e -IR usam -ía (comía, vivía).",
+    chk:["Falei que -AR usa -aba?","Falei que -ER/-IR usam -ía?"]},
+   {tipo:"aplicacao", q:"Passe para o imperfecto: 'yo hablo' e 'ellos comen'.",
+    modelo:"'yo hablaba' e 'ellos comían'.",
+    chk:["Escrevi 'hablaba'?","Escrevi 'comían'?"]},
+   {tipo:"aplicacao", q:"Escreva uma frase sua em espanhol no imperfecto usando o verbo 'vivir'.",
+    modelo:"Ex.: 'Antes vivía cerca de la escuela'. Precisa usar uma forma de 'vivir' no imperfecto (vivía, vivíamos...).",
+    chk:["Usei uma forma de 'vivir' no imperfecto?","A frase tem sentido no passado?"]}
+  ]
+ },
+ {
+  id:"b5", cor:"h-oro", emoji:"⭐", titulo:"Bloco 5 — Los Tres Rebeldes: ser, ir, ver",
+  paragrafos:[
+   "No imperfecto só existem <span class='keyword'>TRÊS irregulares</span> (os três rebeldes!). <b>SER</b> → <b>era, eras, era, éramos, erais, eran</b>. <button class='btn-audio' onclick=\"speak('era, eras, era, éramos, erais, eran')\">🔊</button>",
+   "<b>IR</b> → <b>iba, ibas, iba, íbamos, ibais, iban</b> (sempre com B!). <b>VER</b> → <b>veía, veías, veía, veíamos, veíais, veían</b> (guarda o E: é 'veía', não 'vía'). <button class='btn-audio' onclick=\"speak('iba, ibas, iba, íbamos, ibais, iban. veía, veías, veía, veíamos, veíais, veían')\">🔊</button>"
+  ],
+  completar:{cq:"Complete (verbo ser, 'nosotros'): 'Cuando ______ pequeños, íbamos a la playa.'", resp:["éramos"], dica:"ser no imperfecto, nosotros", fala:"Cuando éramos pequeños, íbamos a la playa"},
+  perguntas:[
+   {tipo:"conceitual", q:"Quais são os únicos três verbos irregulares no pretérito imperfecto?",
+    modelo:"São ser, ir e ver.",
+    chk:["Citei ser, ir e ver?","Acertei os três?"]},
+   {tipo:"aplicacao", q:"Complete e explique: 'Yo ____ (ir) a la escuela a pie' e 'Ella ____ (ser) mi mejor amiga'.",
+    modelo:"'Yo iba a la escuela a pie' e 'Ella era mi mejor amiga'. 'iba' é de ir; 'era' é de ser.",
+    chk:["Escrevi 'iba'?","Escrevi 'era'?"]},
+   {tipo:"aplicacao", q:"Escreva uma frase sua em espanhol no imperfecto usando o verbo 'ver'.",
+    modelo:"Ex.: 'Los sábados veía dibujos animados'. Precisa usar uma forma de 'ver' (veía, veíamos...).",
+    chk:["Usei uma forma de 'ver' (veía...)?","Montei uma frase com sentido?"]}
+  ]
+ },
+ {
+  id:"b6", cor:"h-rojo", emoji:"🎭", titulo:"Bloco 6 — El Modo de Actuar: adverbios de modo",
+  paragrafos:[
+   "No palco importa <span class='keyword'>cómo</span> se atua. Os <b>advérbios de modo</b> dizem COMO uma ação acontece e respondem à pergunta <b>¿cómo?</b>. Muitos terminam em <b>-mente</b>: <b>fácilmente</b>, <b>tranquilamente</b>. Outros são curtinhos: <b>bien</b> (bem), <b>mal</b> (mal), <b>despacio</b> (devagar), <b>deprisa</b> (depressa). Ex.: 'Habla bien español', 'Cantaba mal'. <button class='btn-audio' onclick=\"speak('bien, mal, despacio, deprisa, fácilmente, tranquilamente')\">🔊</button>",
+   "Também existem <span class='keyword'>locuciones adverbiales</span> de modo — grupos de palavras que funcionam juntos como um advérbio: <b>al revés</b> (ao contrário), <b>de veras</b> (de verdade), <b>a oscuras</b> (no escuro), <b>a sabiendas</b> (de propósito, sabendo). <button class='btn-audio' onclick=\"speak('al revés, de veras, a oscuras, a sabiendas')\">🔊</button>"
+  ],
+  completar:{cq:"Complete (advérbio de modo, 'devagar'): 'El actor habló muy ______ para que todos entendieran.'", resp:["despacio"], dica:"devagar", fala:"El actor habló muy despacio"},
+  perguntas:[
+   {tipo:"conceitual", q:"O que os advérbios de modo indicam e a que pergunta eles respondem?",
+    modelo:"Indicam COMO a ação acontece e respondem à pergunta '¿cómo?'. Muitos terminam em -mente.",
+    chk:["Falei que indicam o 'como' da ação?","Falei que respondem '¿cómo?'?"]},
+   {tipo:"aplicacao", q:"Escreva em espanhol uma frase sua usando 'bien' ou 'mal'.",
+    modelo:"Ex.: 'Yo canto mal, pero bailo bien'. Precisa usar 'bien' ou 'mal' como advérbio.",
+    chk:["Usei 'bien' ou 'mal'?","A palavra diz como a ação é feita?"]},
+   {tipo:"aplicacao", q:"O que significam as locuções 'al revés' e 'a oscuras'?",
+    modelo:"'al revés' quer dizer ao contrário (de trás pra frente); 'a oscuras' quer dizer no escuro.",
+    chk:["Expliquei 'al revés' (ao contrário)?","Expliquei 'a oscuras' (no escuro)?"]}
+  ]
+ },
+ {
+  id:"b7", cor:"h-roxo", emoji:"🎸", titulo:"Bloco 7 — La Caja de Instrumentos",
+  paragrafos:[
+   "No palco, a banda abre a caixa de <span class='keyword'>instrumentos musicales</span>. De <b>corda</b>: <b>la guitarra</b> (violão), <b>la guitarra eléctrica</b>, <b>el violín</b> (violino — de corda, tocado com arco e tem quatro cordas), <b>el arpa</b> (harpa). De <b>tecla</b>: <b>el piano</b> (produz som ao pulsar as teclas brancas e pretas) e <b>el acordeón</b>. <button class='btn-audio' onclick=\"speak('la guitarra, la guitarra eléctrica, el violín, el arpa, el piano, el acordeón')\">🔊</button>",
+   "De <b>sopro</b>: <b>el saxofón</b>, <b>la flauta</b>, <b>la trompa</b>, <b>la trompeta</b>. De <b>percussão</b>: <b>la batería</b> (bateria), <b>el tambor</b> (tambor — tocado golpeando com baquetas sobre os parches/peles), <b>las congas</b>, <b>las maracas</b>, <b>las castañuelas</b> y <b>el cajón</b>. <button class='btn-audio' onclick=\"speak('el saxofón, la flauta, la trompa, la trompeta, la batería, el tambor, las congas, las maracas, las castañuelas, el cajón')\">🔊</button>"
+  ],
+  completar:{cq:"Complete: 'El ______ es un instrumento de cuerda que se toca con un arco y tiene cuatro cuerdas.' (instrumento)", resp:["violín","violin","el violín"], dica:"instrumento de corda com arco e 4 cordas", fala:"El violín es un instrumento de cuerda"},
+  perguntas:[
+   {tipo:"aplicacao", q:"Escreva em espanhol dois instrumentos de corda e um de percussão.",
+    modelo:"Ex.: corda → la guitarra, el violín; percussão → el tambor (ou la batería, las maracas).",
+    chk:["Dei dois instrumentos de corda?","Dei um de percussão?"]},
+   {tipo:"conceitual", q:"Como o piano produz som, segundo o livro?",
+    modelo:"O piano produz som ao pulsar (apertar) as teclas brancas e pretas.",
+    chk:["Falei que é ao apertar/pulsar as teclas?","Citei as teclas brancas e pretas?"]},
+   {tipo:"aplicacao", q:"Qual instrumento você gostaria de tocar? Escreva em espanhol: 'Me gustaría tocar el/la ______'.",
+    modelo:"Resposta pessoal. Ex.: 'Me gustaría tocar la guitarra' ou 'Me gustaría tocar el piano'.",
+    chk:["Usei 'Me gustaría tocar'?","Terminei com um instrumento em espanhol?"]}
+  ]
+ },
+ {
+  id:"b8", cor:"h-oro", emoji:"🎼", titulo:"Bloco 8 — Antes del Concierto: el pluscuamperfecto",
+  paragrafos:[
+   "Antes do show, algo já tinha acontecido. O <span class='keyword'>pretérito pluscuamperfecto</span> fala de uma ação passada que aconteceu <b>ANTES</b> de outra ação também passada. Ex.: <b>'Cuando llegué a la clase, la prueba ya había empezado'</b>. Também serve para dizer que é a primeira vez até certo momento ('Nunca había probado el sushi') e para contar o que alguém disse referido ao passado ('Me dijo que ya había comprado las entradas'). <button class='btn-audio' onclick=\"speak('Cuando llegué a la clase, la prueba ya había empezado')\">🔊</button>",
+   "Como se forma? <b>HABER no imperfecto</b> (<b>había, habías, había, habíamos, habíais, habían</b>) <b>+ participio</b>. Regulares: cantado, comido, vivido. Irregulares úteis: <b>hecho</b> (hacer), <b>dicho</b> (decir), <b>visto</b> (ver), <b>escrito</b> (escribir), <b>abierto</b> (abrir), <b>puesto</b> (poner), <b>vuelto</b> (volver). <button class='btn-audio' onclick=\"speak('había, habías, había, habíamos, habíais, habían. hecho, dicho, visto, escrito, abierto, puesto, vuelto')\">🔊</button>"
+  ],
+  completar:{cq:"Complete (verbo haber no imperfecto): 'Cuando llegamos, la película ya ______ empezado.'", resp:["había"], dica:"haber no imperfecto + particípio", fala:"Cuando llegamos, la película ya había empezado"},
+  perguntas:[
+   {tipo:"conceitual", q:"Para que serve o pretérito pluscuamperfecto? Explique com suas palavras.",
+    modelo:"Serve para falar de uma ação passada que aconteceu antes de outra ação também passada (anterioridade). Ex.: quando cheguei, a prova já havia começado.",
+    chk:["Falei que é uma ação passada antes de outra passada?","Deixei clara a ideia de 'antes'?"]},
+   {tipo:"aplicacao", q:"Como se forma o pluscuamperfecto? Monte a forma do 'yo' com o verbo 'hacer'.",
+    modelo:"Forma-se com HABER no imperfecto + particípio. O 'yo' de hacer fica: 'yo había hecho'.",
+    chk:["Falei que é haber (imperfecto) + particípio?","Escrevi 'había hecho'?"]},
+   {tipo:"aplicacao", q:"Complete com o particípio certo: 'Ella ya había ______ (escribir) la carta' e 'Nosotros habíamos ______ (ver) la película'.",
+    modelo:"'había escrito la carta' e 'habíamos visto la película'. (escribir → escrito; ver → visto).",
+    chk:["Escrevi 'escrito'?","Escrevi 'visto'?"]}
+  ]
+ },
+ {
+  id:"b9", cor:"h-rojo", emoji:"🎵", titulo:"Bloco 9 — El Compás del Tiempo y El Escenario",
+  paragrafos:[
+   "No ritmo (compás) do tempo usamos <span class='keyword'>advérbios de tempo</span> (invariáveis): <b>antes, después, pronto, tarde, temprano, todavía, aún, ya, ayer, hoy, mañana, siempre, nunca, jamás, anoche, enseguida, ahora, mientras</b>. <button class='btn-audio' onclick=\"speak('antes, después, pronto, tarde, temprano, todavía, aún, ya, ayer, hoy, mañana, siempre, nunca, jamás, anoche, enseguida, ahora, mientras')\">🔊</button>",
+   "E as <span class='keyword'>locuciones de tiempo</span> (grupos de palavras): <b>de repente, de pronto, a menudo</b> (frequentemente), <b>al amanecer, al anochecer, de vez en cuando, por la noche, por la mañana, por la tarde</b>. <button class='btn-audio' onclick=\"speak('de repente, de pronto, a menudo, al amanecer, al anochecer, de vez en cuando, por la noche, por la mañana, por la tarde')\">🔊</button> <br>No <b>escenario</b> tocam-se vários <span class='keyword'>géneros de música y danza</span>: <b>salsa, merengue, bachata, rumba, rock y blues</b>. <button class='btn-audio' onclick=\"speak('salsa, merengue, bachata, rumba, rock, blues')\">🔊</button>"
+  ],
+  completar:{cq:"Complete (advérbio de tempo, 'ontem'): '______ fuimos al concierto; hoy nos quedamos en casa.'", resp:["ayer"], dica:"o contrário de 'hoy'", fala:"Ayer fuimos al concierto"},
+  perguntas:[
+   {tipo:"aplicacao", q:"Escreva em espanhol três advérbios de tempo.",
+    modelo:"Ex.: ayer, hoy, mañana (também valem siempre, nunca, ahora, temprano, tarde...).",
+    chk:["Escrevi três advérbios de tempo?","Escrevi em espanhol?"]},
+   {tipo:"conceitual", q:"Qual a diferença entre um advérbio de tempo (ex.: 'ayer') e uma locução de tempo (ex.: 'de vez en cuando')?",
+    modelo:"O advérbio é uma só palavra (ayer, hoy). A locução é um grupo de palavras que funciona junto como um advérbio (de vez en cuando, por la mañana).",
+    chk:["Falei que o advérbio é uma só palavra?","Falei que a locução é um grupo de palavras?"]},
+   {tipo:"aplicacao", q:"Cite dois géneros de música/dança do capítulo em espanhol e escreva uma frase usando um advérbio de tempo.",
+    modelo:"Ex.: géneros → salsa, bachata, rock... Frase: 'Ayer bailé salsa' ou 'A veces escucho rock'. Precisa de dois géneros + uma frase com advérbio de tempo.",
+    chk:["Citei dois géneros em espanhol?","Fiz uma frase com um advérbio de tempo?"]}
+  ]
+ }
+];
+
+// ===== ESTADO / SALVAMENTO =====
+const KEY="esp7_cap6-7_leitura_v1";
+let store={};
+const mem={};
+function load(){
+  try{ const raw=localStorage.getItem(KEY); if(raw) store=JSON.parse(raw); }
+  catch(e){ try{ store=mem[KEY]?JSON.parse(mem[KEY]):{}; }catch(_){ store={}; } }
+  if(!store.blocos) store.blocos={};
+}
+function save(){
+  store.quando=new Date().toLocaleString('pt-BR');
+  const raw=JSON.stringify(store);
+  try{ localStorage.setItem(KEY,raw); }catch(e){ mem[KEY]=raw; }
+  const el=document.getElementById('saveInfo'); if(el) el.textContent="💾 Salvo "+store.quando;
+}
+
+// ===== ANTICÓPIA =====
+function normWords(s){
+  return (s||"").toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')
+    .replace(/[^a-z0-9ñ\s]/g,' ').split(/\s+/).filter(Boolean);
+}
+function hasRun(hay,seq){
+  if(seq.length===0) return false;
+  for(let i=0;i+seq.length<=hay.length;i++){
+    let ok=true;
+    for(let j=0;j<seq.length;j++){ if(hay[i+j]!==seq[j]){ok=false;break;} }
+    if(ok) return true;
+  }
+  return false;
+}
+function detectTranscricao(answer, blockText, questionText){
+  const a=normWords(answer), b=normWords(blockText), q=normWords(questionText);
+  const n=a.length;
+  if(n<5) return {transcrita:false, maxRun:0, cov:0};
+  let maxRun=0; const covered=new Array(n).fill(false);
+  for(let i=0;i<n;i++){
+    let len=0;
+    for(let l=1;i+l<=n;l++){ if(hasRun(b,a.slice(i,i+l))) len=l; else break; }
+    if(len>=1){
+      const seg=a.slice(i,i+len);
+      const inQ = len>=4 && hasRun(q,seg);
+      if(!inQ){
+        if(len>maxRun) maxRun=len;
+        if(len>=5){ for(let k=i;k<i+len;k++) covered[k]=true; }
+      }
+    }
+  }
+  const cov = covered.filter(Boolean).length / n;
+  return {transcrita:(maxRun>=8 || cov>0.6), maxRun, cov};
+}
+
+// ===== RENDER =====
+function blockPlainText(bl){
+  return bl.paragrafos.map(p=>p.replace(/<[^>]+>/g,' ')).join(' ');
+}
+function st(bid){ if(!store.blocos[bid]) store.blocos[bid]={perg:{},conferido:false}; return store.blocos[bid]; }
+function escapeHtml(s){return (s||"").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function render(){
+  const cont=document.getElementById('blocos'); cont.innerHTML="";
+  BLOCOS.forEach((bl,idx)=>{
+    const s=st(bl.id);
+    const prev = idx===0 ? true : st(BLOCOS[idx-1].id).conferido;
+    const locked = !prev && !s.conferido;
+    const div=document.createElement('div');
+    div.className="block"+(locked?" locked":"");
+    let statusTxt = s.conferido ? blockStatusLabel(bl) : "";
+    let html=`<div class="block-head ${bl.cor}"><span>${bl.emoji} ${bl.titulo}</span><span class="block-status">${statusTxt}</span></div>`;
+    html+=`<div class="block-body">`;
+    if(locked){
+      html+=`<p><i>🔒 Confira o quadro anterior para abrir este.</i></p>`;
+    }else{
+      html+=`<div class="txt">${bl.paragrafos.map(p=>`<p>${p}</p>`).join("")}</div>`;
+      if(bl.completar){
+        const cv=(s.completar&&s.completar.val)||"";
+        html+=`<div class="completar">`;
+        html+=`<div class="cq">✏️ Completar: ${bl.completar.cq}</div>`;
+        html+=`<input id="${bl.id}_comp" value="${escapeHtml(cv)}" placeholder="escreva aqui">`;
+        html+=`<button class="ck" onclick="checarComp('${bl.id}')">Comprobar</button>`;
+        html+=`<button class="btn-audio" onclick="speak('${bl.completar.fala.replace(/'/g,"\\'")}')">🔊 Ouvir a frase</button>`;
+        html+=`<div class="fb" id="${bl.id}_compfb"></div>`;
+        html+=`</div>`;
+      }
+      bl.perguntas.forEach((pg,qi)=>{
+        const ps=s.perg[qi]||{};
+        const red = ps.transcrita ? " red":"";
+        const tag = pg.tipo==="conceitual" ? `<span class="tag tag-con">conceito</span>` : `<span class="tag tag-apl">aplicação</span>`;
+        html+=`<div class="q${red}" id="${bl.id}_q${qi}">`;
+        html+=`${tag}<label>${qi+1}) ${pg.q}</label>`;
+        html+=`<textarea id="${bl.id}_t${qi}" oninput="onType('${bl.id}',${qi})">${escapeHtml(ps.resp||"")}</textarea>`;
+        html+=`<div class="alert copy" id="${bl.id}_copy${qi}" style="display:none"></div>`;
+        html+=`<div class="alert redwarn" id="${bl.id}_red${qi}" style="display:${ps.transcrita?'block':'none'}">🔴 Esta resposta ficou muito parecida com o texto. Tente reescrever com as suas palavras — isso limpa a marca automaticamente.</div>`;
+        html+=`<div class="modelo${s.conferido?' show':''}" id="${bl.id}_m${qi}">`;
+        html+=`<div class="mtitle">✅ Resposta modelo</div><div>${pg.modelo}</div>`;
+        html+=`<div class="chk">`;
+        pg.chk.forEach((c,ci)=>{
+          const v=(ps.chk&&ps.chk[ci])||"";
+          html+=`<div class="cline"><span>${c}</span>`+
+            `<button class="${v==='sim'?'sel-sim':''}" onclick="setChk('${bl.id}',${qi},${ci},'sim')">Sim</button>`+
+            `<button class="${v==='nao'?'sel-nao':''}" onclick="setChk('${bl.id}',${qi},${ci},'nao')">Não</button></div>`;
+        });
+        html+=`</div></div>`;
+        html+=`</div>`;
+      });
+      html+=`<button class="conferir" id="${bl.id}_btn" onclick="conferir('${bl.id}')">${s.conferido?'✔ Conferido — conferir de novo':'Conferir quadro'}</button>`;
+    }
+    html+=`</div>`;
+    div.innerHTML=html;
+    cont.appendChild(div);
+  });
+  atualizarRevisar();
+}
+
+function blockStatusLabel(bl){
+  const s=st(bl.id); let anyNao=false, anyRed=false;
+  bl.perguntas.forEach((pg,qi)=>{
+    const ps=s.perg[qi]||{};
+    if(ps.transcrita) anyRed=true;
+    (pg.chk||[]).forEach((c,ci)=>{ if(ps.chk&&ps.chk[ci]==='nao') anyNao=true; });
+  });
+  return (anyNao||anyRed) ? "🔁 revisar" : "✅ ok";
+}
+
+function norm(s){ return (s||"").toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9ñ\s]/g,'').trim(); }
+function checarComp(bid){
+  const bl=BLOCOS.find(b=>b.id===bid); const s=st(bid);
+  const val=document.getElementById(bid+'_comp').value;
+  if(!s.completar) s.completar={};
+  s.completar.val=val;
+  const fb=document.getElementById(bid+'_compfb');
+  const acertou = bl.completar.resp.some(r=>norm(r)===norm(val));
+  if(acertou){ fb.className="fb ok"; fb.textContent="✅ ¡Muy bien! Resposta certa."; s.completar.ok=true; }
+  else{ fb.className="fb no"; fb.textContent="❌ Ainda não. Dica: "+bl.completar.dica+". (Tente de novo!)"; s.completar.ok=false; }
+  save();
+}
+
+function onType(bid,qi){
+  const s=st(bid); if(!s.perg[qi]) s.perg[qi]={};
+  const val=document.getElementById(bid+'_t'+qi).value;
+  s.perg[qi].resp=val;
+  if(s.perg[qi].transcrita){
+    const bl=BLOCOS.find(b=>b.id===bid); const pg=bl.perguntas[qi];
+    const d=detectTranscricao(val, blockPlainText(bl), pg.q);
+    if(!d.transcrita){
+      s.perg[qi].transcrita=false;
+      const q=document.getElementById(bid+'_q'+qi); if(q) q.classList.remove('red');
+      const rw=document.getElementById(bid+'_red'+qi); if(rw) rw.style.display='none';
+    }
+  }
+  save(); atualizarRevisar();
+}
+
+function setChk(bid,qi,ci,val){
+  const s=st(bid); if(!s.perg[qi]) s.perg[qi]={}; if(!s.perg[qi].chk) s.perg[qi].chk={};
+  s.perg[qi].chk[ci]=val; save(); render();
+}
+
+function conferir(bid){
+  const bl=BLOCOS.find(b=>b.id===bid); const s=st(bid);
+  const blockText=blockPlainText(bl);
+  for(let qi=0;qi<bl.perguntas.length;qi++){
+    const v=(document.getElementById(bid+'_t'+qi).value||"").trim();
+    if(v.length<3){ showMini(bid, "Preencha as 3 respostas (pelo menos 3 letras cada) antes de conferir. 💪"); return; }
+  }
+  let bloqueio=false;
+  for(let qi=0;qi<bl.perguntas.length;qi++){
+    const pg=bl.perguntas[qi]; const ps=s.perg[qi]||(s.perg[qi]={});
+    const val=document.getElementById(bid+'_t'+qi).value;
+    ps.resp=val;
+    const copyEl=document.getElementById(bid+'_copy'+qi);
+    const d=detectTranscricao(val, blockText, pg.q);
+    if(d.transcrita){
+      if(!ps.tentou){
+        ps.tentou=val;
+        copyEl.textContent="✏️ Boa parte da sua resposta está igual ao texto. Tente reescrever com as suas palavras — explique como se fosse para um amigo, sem olhar o texto. Pode ficar mais curto e simples, o que vale é ser SEU!";
+        copyEl.style.display="block";
+        bloqueio=true;
+      }else{
+        ps.transcrita=true;
+        copyEl.style.display="none";
+        const rw=document.getElementById(bid+'_red'+qi); if(rw) rw.style.display="block";
+        const q=document.getElementById(bid+'_q'+qi); if(q) q.classList.add('red');
+      }
+    }else{
+      ps.transcrita=false;
+      copyEl.style.display="none";
+      const rw=document.getElementById(bid+'_red'+qi); if(rw) rw.style.display="none";
+      const q=document.getElementById(bid+'_q'+qi); if(q) q.classList.remove('red');
+    }
+  }
+  save();
+  if(bloqueio){ return; }
+  s.conferido=true;
+  save(); render();
+}
+
+function showMini(bid,msg){
+  const copyEl=document.getElementById(bid+'_copy0');
+  if(copyEl){ copyEl.textContent=msg; copyEl.style.display="block"; setTimeout(()=>{copyEl.style.display="none";},4000); }
+}
+
+function atualizarRevisar(){
+  const box=document.getElementById('revisarBox'); const ul=document.getElementById('revisarList');
+  ul.innerHTML=""; let n=0;
+  BLOCOS.forEach(bl=>{
+    const s=st(bl.id);
+    bl.perguntas.forEach((pg,qi)=>{
+      const ps=s.perg[qi]||{};
+      let motivo="";
+      if(ps.transcrita) motivo="resposta muito parecida com o texto";
+      let anyNao=false; (pg.chk||[]).forEach((c,ci)=>{ if(ps.chk&&ps.chk[ci]==='nao') anyNao=true; });
+      if(anyNao) motivo=motivo?motivo+" e algum 'não' na autoavaliação":"algum 'não' na autoavaliação";
+      if(motivo){ n++; const li=document.createElement('li'); li.innerHTML=`<b>${bl.titulo}</b>, pergunta ${qi+1} — ${motivo}.`; ul.appendChild(li); }
+    });
+  });
+  box.style.display = n>0 ? "block":"none";
+}
+
+// ===== EXPORTAR / IMPORTAR / ZERAR =====
+function exportar(){
+  const data=JSON.stringify(store,null,2);
+  const blob=new Blob([data],{type:"application/json"});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download="leitura-espanhol-7ano.json"; a.click();
+}
+function abrirImport(){ document.getElementById('importModal').style.display="flex"; }
+function fecharImport(){ document.getElementById('importModal').style.display="none"; }
+function fazerImport(){
+  try{ const t=document.getElementById('importText').value; const obj=JSON.parse(t); store=obj; if(!store.blocos)store.blocos={}; save(); render(); fecharImport(); }
+  catch(e){ document.getElementById('importText').value="⚠️ Texto inválido. Cole o conteúdo exportado.\n\n"+document.getElementById('importText').value; }
+}
+function zerar(){ store={blocos:{}}; try{ localStorage.removeItem(KEY); }catch(e){} save(); render(); }
+
+// ===== INÍCIO =====
+load(); render();
+if(store.quando){ document.getElementById('saveInfo').textContent="💾 Salvo "+store.quando; }
+</script>
+</body>
+</html>

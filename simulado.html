@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado — Espanhol 7º ano | Tras el Telón 🎭</title>
+<style>
+  :root{
+    --bg:#141228; --bg2:#1d1838; --card:#241f45; --card2:#2d2654;
+    --roxo:#7b3ff2; --oro:#ffcf4d; --rojo:#e23b5a;
+    --ink:#ece9f5; --ink2:#a9a6c4; --line:#3a356e; --ok:#43e97b; --red:#ff5d7a;
+    --navy:#0f1430;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  header.top{background:var(--navy);border:1px solid var(--line);border-top:6px solid var(--rojo);border-radius:16px;padding:22px;margin:12px 0;text-align:center}
+  header.top h1{margin:0 0 6px;font-size:25px;color:#fff}
+  header.top p{margin:3px 0;color:#cfe0ff;font-size:15px}
+  nav.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  nav.tabs a{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
+  nav.tabs a.active{background:var(--rojo);border-color:var(--rojo);color:#fff}
+  .save-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13px;margin:10px 0}
+  .save-bar button{cursor:pointer;border:none;border-radius:10px;padding:8px 12px;font-weight:700;font-size:13px}
+  .btn-exp{background:#1e4d3a;color:#9af0c0} .btn-imp{background:#1e3a52;color:#9ad0f0} .btn-zero{background:#52222e;color:#ffb0c4}
+  #saveInfo{color:var(--ink2);margin-left:auto}
+  .q{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:15px 17px;margin:13px 0}
+  .q .num{font-size:13px;color:var(--oro);font-weight:800}
+  .q .badge{font-size:11px;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--ink2);margin-left:6px}
+  .q .enun{font-weight:600;margin:5px 0 10px;font-size:17px}
+  .opt{display:block;width:100%;text-align:left;background:var(--card2);border:1.5px solid var(--line);color:var(--ink);border-radius:10px;padding:10px 12px;margin:6px 0;cursor:pointer;font-size:16px}
+  .opt.sel{border-color:var(--roxo);background:#271c4d}
+  .opt.ok{background:#11402b;border-color:var(--ok);color:#b6f5cf}
+  .opt.no{background:#401b26;border-color:var(--red);color:#ffc0cf}
+  input.fill{background:var(--bg2);color:var(--ink);border:1.5px solid var(--line);border-radius:9px;padding:9px 11px;font-size:16px;width:200px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+  .chip{background:var(--card2);border:1.5px solid var(--line);color:var(--ink);border-radius:9px;padding:7px 12px;cursor:pointer;font-size:16px}
+  .chip.used{opacity:.35;pointer-events:none}
+  .answer-line{min-height:40px;background:var(--bg2);border:1.5px dashed var(--roxo);border-radius:9px;padding:8px 10px;margin:6px 0;font-size:16px;color:var(--oro)}
+  .mini{background:none;border:1px solid var(--line);color:var(--ink2);border-radius:8px;padding:4px 10px;cursor:pointer;font-size:13px}
+  .gab{margin-top:9px;border-radius:10px;padding:10px 12px;font-size:15px;display:none}
+  .gab.show{display:block}
+  .gab.c{background:#11402b;color:#b6f5cf;border:1px solid var(--ok)}
+  .gab.w{background:#3a1f2a;color:#ffc4da;border:1px solid var(--red)}
+  .corrigir{display:block;width:100%;background:var(--rojo);color:#fff;border:none;border-radius:14px;padding:15px;font-weight:900;font-size:19px;cursor:pointer;margin:16px 0}
+  .final{background:var(--card);border:2px solid var(--oro);border-radius:18px;padding:22px;margin:16px 0;text-align:center;display:none}
+  .final.show{display:block}
+  .final .code{font-size:26px;font-weight:900;color:var(--oro);letter-spacing:2px;margin:10px 0;background:var(--bg2);border-radius:10px;padding:10px}
+  .footer-nav{display:flex;justify-content:space-between;margin:20px 0;gap:10px;flex-wrap:wrap}
+  .footer-nav a{background:var(--rojo);color:#fff;text-decoration:none;border-radius:12px;padding:12px 18px;font-weight:800}
+  small.muted{color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>📝 Simulado — Tras el Telón</h1>
+    <p><b>Espanhol · 7º ano · Colégio Coração Feliz</b></p>
+    <p>Capítulos 6 e 7 · 25 questões · responda tudo e clique em <b>Corregir</b></p>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html">🏠 Início</a>
+    <a href="leitura-guiada.html">📖 Leitura Guiada</a>
+    <a href="quiz.html">🎯 Quiz</a>
+    <a href="resumo.html">🗺️ Resumo</a>
+    <a class="active" href="simulado.html">📝 Simulado</a>
+  </nav>
+
+  <div class="save-bar">
+    <button class="btn-exp" onclick="exportar()">📥 Exportar</button>
+    <button class="btn-imp" onclick="abrirImport()">📤 Importar</button>
+    <button class="btn-zero" onclick="zerar()">🗑️ Zerar tudo</button>
+    <span id="saveInfo">—</span>
+  </div>
+
+  <div id="sim"></div>
+
+  <button class="corrigir" onclick="corrigir()">✅ Corregir el simulado</button>
+
+  <div class="final" id="final">
+    <h2>📊 Resultado</h2>
+    <p><b id="fScore"></b></p>
+    <p>Mostre este código para um responsável ver o relatório:</p>
+    <div class="code" id="fCode">SIM-00-XX</div>
+    <p id="fMsg"></p>
+  </div>
+
+  <div class="footer-nav">
+    <a href="resumo.html">← Voltar ao Resumo</a>
+    <a href="index.html">🏠 Início</a>
+  </div>
+  <p style="text-align:center"><small class="muted">Feito com carinho para o(a) jovem aprendiz. Capítulos 6 e 7 do livro de Espanhol (CCF).</small></p>
+</div>
+
+<div id="importModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;align-items:center;justify-content:center">
+  <div style="background:var(--card);border:1.5px solid var(--oro);border-radius:16px;padding:20px;max-width:480px;width:92%">
+    <h3 style="margin-top:0">📤 Importar</h3>
+    <textarea id="importText" style="width:100%;min-height:110px;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px"></textarea>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn-imp" onclick="fazerImport()">Importar</button>
+      <button class="btn-zero" onclick="fecharImport()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function shuffle(arr,seed){const r=mulberry32(seed);const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function norm(s){ return (s||"").toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9ñ\s]/g,'').replace(/\s+/g,' ').trim(); }
+
+// ===== 25 QUESTÕES (mc / fill / order) — sem áudio, sem indicar nível =====
+const QS=[
+ // --- MC ---
+ {type:"mc", enun:"O que significa <b>la corbata</b>?", opts:[{t:"a gravata",ok:true},{t:"o cinto",ok:false},{t:"o boné",ok:false},{t:"o cachecol",ok:false}], fb:"<b>la corbata</b> = a gravata."},
+ {type:"mc", enun:"O que significa <b>el cinturón</b>?", opts:[{t:"o cinto",ok:true},{t:"a bolsa",ok:false},{t:"as luvas",ok:false},{t:"as meias",ok:false}], fb:"<b>el cinturón</b> = o cinto."},
+ {type:"mc", enun:"Como se diz uma estampa <b>xadrez</b> em espanhol?", opts:[{t:"de cuadros",ok:true},{t:"de rayas",ok:false},{t:"de lunares",ok:false},{t:"de flores",ok:false}], fb:"xadrez = <b>de cuadros</b>."},
+ {type:"mc", enun:"O que quer dizer <b>de encaje</b>?", opts:[{t:"de renda",ok:true},{t:"de lã",ok:false},{t:"liso",ok:false},{t:"floral",ok:false}], fb:"<b>de encaje</b> = de renda."},
+ {type:"mc", enun:"Qual frase está no <b>imperfecto</b> e indica um hábito do passado?", opts:[{t:"Antes jugábamos en la calle",ok:true},{t:"Ayer comí pizza",ok:false},{t:"Mañana iré al cine",ok:false},{t:"Ahora estoy comiendo",ok:false}], fb:"'Antes jugábamos' é imperfecto (hábito repetido no passado)."},
+ {type:"mc", enun:"Imperfecto de <b>vivir</b> com <b>ellos</b>:", opts:[{t:"vivían",ok:true},{t:"viven",ok:false},{t:"vivieron",ok:false},{t:"vivirían",ok:false}], fb:"-IR usa -ía → <b>vivían</b> (ellos)."},
+ {type:"mc", enun:"Imperfecto de <b>ser</b> com <b>nosotros</b>:", opts:[{t:"éramos",ok:true},{t:"somos",ok:false},{t:"fuimos",ok:false},{t:"seríamos",ok:false}], fb:"ser é irregular → <b>éramos</b> (nosotros)."},
+ {type:"mc", enun:"Imperfecto de <b>ir</b> com <b>ellos</b>:", opts:[{t:"iban",ok:true},{t:"van",ok:false},{t:"fueron",ok:false},{t:"irían",ok:false}], fb:"ir é irregular → <b>iban</b> (com B)."},
+ {type:"mc", enun:"Imperfecto de <b>ver</b> com <b>nosotros</b>:", opts:[{t:"veíamos",ok:true},{t:"vemos",ok:false},{t:"vimos",ok:false},{t:"veríamos",ok:false}], fb:"ver mantém o E → <b>veíamos</b>."},
+ {type:"mc", enun:"Qual destas palavras é um <b>advérbio de modo</b>?", opts:[{t:"fácilmente",ok:true},{t:"ayer",ok:false},{t:"mañana",ok:false},{t:"nunca",ok:false}], fb:"<b>fácilmente</b> (termina em -mente) é de modo; os outros são de tempo."},
+ {type:"mc", enun:"A locução <b>a oscuras</b> quer dizer:", opts:[{t:"no escuro",ok:true},{t:"ao contrário",ok:false},{t:"de verdade",ok:false},{t:"de propósito",ok:false}], fb:"<b>a oscuras</b> = no escuro."},
+ {type:"mc", enun:"Qual é um instrumento de <b>sopro</b>?", opts:[{t:"el saxofón",ok:true},{t:"el violín",ok:false},{t:"el tambor",ok:false},{t:"el piano",ok:false}], fb:"<b>el saxofón</b> é de sopro."},
+ {type:"mc", enun:"Qual é um instrumento de <b>tecla</b>?", opts:[{t:"el piano",ok:true},{t:"la guitarra",ok:false},{t:"las maracas",ok:false},{t:"la flauta",ok:false}], fb:"<b>el piano</b> é de tecla (teclas brancas e pretas)."},
+ {type:"mc", enun:"Complete: 'Cuando llegué, la película ya ______ empezado.'", opts:[{t:"había",ok:true},{t:"habían",ok:false},{t:"tenía",ok:false},{t:"estaba",ok:false}], fb:"pluscuamperfecto = <b>había</b> + particípio (la película é singular)."},
+ {type:"mc", enun:"Qual é o <b>particípio</b> do verbo <b>hacer</b>?", opts:[{t:"hecho",ok:true},{t:"hacido",ok:false},{t:"hechado",ok:false},{t:"facido",ok:false}], fb:"hacer → particípio <b>hecho</b>."},
+ {type:"mc", enun:"Qual destes é um <b>género de música / danza</b> do capítulo?", opts:[{t:"bachata",ok:true},{t:"acordeón",ok:false},{t:"sombrero",ok:false},{t:"cuadros",ok:false}], fb:"<b>bachata</b> é um género (acordeón é instrumento; sombrero é roupa)."},
+ // --- FILL ---
+ {type:"fill", enun:"Complete com o verbo <b>hablar</b> no imperfecto (yo): 'Cuando era niño, yo ______ mucho.'", resp:["hablaba"], fb:"-AR usa -aba → <b>hablaba</b> (yo)."},
+ {type:"fill", enun:"Complete com o verbo <b>ser</b> no imperfecto (ella): 'Mi abuela ______ muy simpática.'", resp:["era"], fb:"ser (ella) no imperfecto → <b>era</b>."},
+ {type:"fill", enun:"Complete com <b>haber</b> no imperfecto (nosotros): 'Nosotros ya ______ comido cuando llegaste.'", resp:["habíamos"], fb:"pluscuamperfecto (nosotros) → <b>habíamos</b> + particípio."},
+ {type:"fill", enun:"Complete com o <b>particípio</b> de escribir: 'Ella había ______ la carta.'", resp:["escrito"], fb:"escribir → <b>escrito</b>."},
+ {type:"fill", enun:"Complete com o advérbio de tempo que significa 'ontem': '______ fui al cine; hoy me quedo en casa.'", resp:["ayer"], fb:"ontem = <b>ayer</b>."},
+ // --- ORDER ---
+ {type:"order", enun:"Ordene as palavras para formar 'eu gostava de brincar' (imperfecto).", words:["gustaba","me","jugar"], ans:"me gustaba jugar", fb:"Frase certa: <b>Me gustaba jugar</b>."},
+ {type:"order", enun:"Ordene as palavras para descrever no passado: 'ela era muito alta'.", words:["era","ella","muy","alta"], ans:"ella era muy alta", fb:"Frase certa: <b>Ella era muy alta</b>."},
+ {type:"order", enun:"Ordene as palavras (pluscuamperfecto): 'a prova já tinha começado'.", words:["prueba","la","había","ya","empezado"], ans:"la prueba ya había empezado", fb:"Frase certa: <b>La prueba ya había empezado</b>."},
+ {type:"order", enun:"Ordene as palavras para formar 'eu via desenhos' (imperfecto).", words:["veía","yo","dibujos"], ans:"yo veía dibujos", fb:"Frase certa: <b>Yo veía dibujos</b>."}
+];
+
+const KEY="esp7_cap6-7_simulado_v1";
+let store={resp:{},order:{},acertos:0,respondidas:0,total:QS.length,yy:null,corrigido:false};
+const mem={};
+function load(){
+  try{const r=localStorage.getItem(KEY); if(r) store=JSON.parse(r);}catch(e){try{store=mem[KEY]?JSON.parse(mem[KEY]):store;}catch(_){}}
+  if(!store.resp) store.resp={}; if(!store.order) store.order={};
+  store.total=QS.length;
+  if(!store.yy){ const L="ABCDEFGHJKLMNPQRSTUVWXYZ"; store.yy=L[Math.floor(Math.random()*L.length)]+L[Math.floor(Math.random()*L.length)]; }
+}
+function save(){
+  store.quando=new Date().toLocaleString('pt-BR');
+  const raw=JSON.stringify(store);
+  try{localStorage.setItem(KEY,raw);}catch(e){mem[KEY]=raw;}
+  const el=document.getElementById('saveInfo'); if(el) el.textContent="💾 Salvo "+store.quando;
+}
+
+function render(){
+  const cont=document.getElementById('sim'); cont.innerHTML="";
+  QS.forEach((q,qi)=>{
+    const div=document.createElement('div'); div.className="q";
+    const badge = q.type==="mc"?"múltipla escolha":(q.type==="fill"?"completar":"ordenar");
+    let html=`<div class="num">Pregunta ${qi+1} de ${QS.length} <span class="badge">${badge}</span></div>`;
+    html+=`<div class="enun">${q.enun}</div>`;
+    if(q.type==="mc"){
+      const opts=shuffle(q.opts, qi*131+5);
+      const chosen=store.resp[qi];
+      opts.forEach((o,oi)=>{
+        let cls="opt";
+        if(store.corrigido){ if(o.ok) cls+=" ok"; else if(o.t===chosen) cls+=" no"; }
+        else if(o.t===chosen) cls+=" sel";
+        html+=`<button class="${cls}" ${store.corrigido?'disabled':''} onclick="pick(${qi},'${o.t.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">${String.fromCharCode(97+oi)}) ${o.t}</button>`;
+      });
+    } else if(q.type==="fill"){
+      const v=store.resp[qi]||"";
+      html+=`<input class="fill" id="f${qi}" value="${(v+'').replace(/"/g,'&quot;')}" ${store.corrigido?'disabled':''} oninput="typeFill(${qi})" placeholder="escreva aqui">`;
+    } else if(q.type==="order"){
+      const chosenArr=store.order[qi]||[];
+      const words=shuffle(q.words, qi*149+3);
+      html+=`<div class="answer-line" id="al${qi}">${chosenArr.length?chosenArr.join(' '):'<span style="color:var(--ink2)">clique nas palavras na ordem certa…</span>'}</div>`;
+      html+=`<div class="chips">`;
+      words.forEach((w,wi)=>{
+        const used = countUsed(chosenArr,w) > countBefore(words,wi,w) ? true:false;
+        html+=`<button class="chip${used?' used':''}" ${store.corrigido?'disabled':''} onclick="addWord(${qi},'${w.replace(/'/g,"\\'")}')">${w}</button>`;
+      });
+      html+=`</div>`;
+      if(!store.corrigido) html+=`<button class="mini" onclick="clearOrder(${qi})">↺ limpar</button>`;
+    }
+    html+=`<div class="gab" id="g${qi}"></div>`;
+    div.innerHTML=html;
+    cont.appendChild(div);
+  });
+}
+
+function countUsed(arr,w){ return arr.filter(x=>x===w).length; }
+function countBefore(words,idx,w){ let c=0; for(let i=0;i<idx;i++){ if(words[i]===w) c++; } return c; }
+
+function pick(qi,txt){ if(store.corrigido) return; store.resp[qi]=txt; save(); render(); }
+function typeFill(qi){ store.resp[qi]=document.getElementById('f'+qi).value; save(); }
+function addWord(qi,w){ if(store.corrigido) return; if(!store.order[qi]) store.order[qi]=[]; store.order[qi].push(w); save(); render(); }
+function clearOrder(qi){ store.order[qi]=[]; save(); render(); }
+
+function aplicarGabaritos(){
+  QS.forEach((q,qi)=>{
+    let ok=false;
+    if(q.type==="mc"){ const o=q.opts.find(x=>x.t===store.resp[qi]); ok=!!(o&&o.ok); }
+    else if(q.type==="fill"){ ok=q.resp.some(r=>norm(r)===norm(store.resp[qi])); }
+    else if(q.type==="order"){ ok = norm((store.order[qi]||[]).join(' '))===norm(q.ans); }
+    const g=document.getElementById('g'+qi);
+    if(g){
+      g.className="gab show "+(ok?"c":"w");
+      let extra="";
+      if(!ok){
+        if(q.type==="fill") extra=" (resposta certa: <b>"+q.resp[0]+"</b>)";
+        if(q.type==="order") extra=" (ordem certa: <b>"+q.ans+"</b>)";
+      }
+      g.innerHTML=(ok?"✅ ¡Correcto! ":"❌ Revise. ")+q.fb+extra;
+    }
+    return ok;
+  });
+}
+
+function corrigir(){
+  let faltando=0;
+  QS.forEach((q,qi)=>{
+    if(q.type==="order"){ if(!(store.order[qi]&&store.order[qi].length===q.words.length)) faltando++; }
+    else { const v=store.resp[qi]; if(v==null||(''+v).trim()==="") faltando++; }
+  });
+  if(faltando>0){ alertaFalta(faltando); return; }
+  store.corrigido=true;
+  let ac=0;
+  QS.forEach((q,qi)=>{
+    let ok=false;
+    if(q.type==="mc"){ const o=q.opts.find(x=>x.t===store.resp[qi]); ok=!!(o&&o.ok); }
+    else if(q.type==="fill"){ ok=q.resp.some(r=>norm(r)===norm(store.resp[qi])); }
+    else if(q.type==="order"){ ok = norm((store.order[qi]||[]).join(' '))===norm(q.ans); }
+    if(ok) ac++;
+  });
+  store.acertos=ac; store.respondidas=QS.length;
+  save(); render();
+  aplicarGabaritos();
+  const xx=String(ac).padStart(2,'0');
+  document.getElementById('fScore').textContent=ac+" de "+QS.length+" acertos";
+  document.getElementById('fCode').textContent="SIM-"+xx+"-"+store.yy;
+  const msg=document.getElementById('fMsg');
+  msg.textContent = ac>=20? "🌟 ¡Excelente! Você está pronto(a)." : (ac>=13? "👍 Bom! Revise os erros no gabarito acima." : "💪 Vale reler o Resumo e a Leitura e tentar de novo.");
+  document.getElementById('final').classList.add('show');
+  document.getElementById('final').scrollIntoView({behavior:'smooth'});
+}
+
+function alertaFalta(n){
+  const f=document.getElementById('final');
+  f.classList.add('show');
+  document.getElementById('fScore').textContent="Ainda faltam "+n+" questão(ões) para responder.";
+  document.getElementById('fCode').textContent="— — —";
+  document.getElementById('fMsg').textContent="Responda todas antes de corrigir. 💪";
+  f.scrollIntoView({behavior:'smooth'});
+}
+
+function exportar(){ const blob=new Blob([JSON.stringify(store,null,2)],{type:"application/json"}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download="simulado-espanhol-7ano.json"; a.click(); }
+function abrirImport(){ document.getElementById('importModal').style.display="flex"; }
+function fecharImport(){ document.getElementById('importModal').style.display="none"; }
+function fazerImport(){ try{ store=JSON.parse(document.getElementById('importText').value); if(!store.resp)store.resp={}; if(!store.order)store.order={}; save(); render(); fecharImport(); if(store.corrigido){ aplicarGabaritos(); document.getElementById('final').classList.add('show'); } }catch(e){ document.getElementById('importText').value="⚠️ Texto inválido.\n\n"+document.getElementById('importText').value; } }
+function zerar(){ const yy=store.yy; store={resp:{},order:{},acertos:0,respondidas:0,total:QS.length,yy:yy,corrigido:false}; try{localStorage.removeItem(KEY);}catch(e){} save(); render(); document.getElementById('final').classList.remove('show'); }
+
+load(); render();
+if(store.quando){ document.getElementById('saveInfo').textContent="💾 Salvo "+store.quando; }
+if(store.corrigido){ aplicarGabaritos(); document.getElementById('final').classList.add('show'); }
+</script>
+</body>
+</html>
